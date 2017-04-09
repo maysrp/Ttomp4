@@ -6,13 +6,14 @@
 ```
 apt-get install ffmpeg
 ```
-###3 创建目录
+#### 创建目录
 
 pre
 
 doing
 
 确保两个目录权限777 [让PHP写入转码配置]
+[确保两个文件夹下没有其他.sh脚本文件]
 
 ### 使用范例
 
@@ -39,6 +40,8 @@ crontab -e
 
 ### 核心文件
 
-vcode.php
-head.sh
-cron.sh
+* vcode.php
+* head.sh
+* cron.sh
+
+
