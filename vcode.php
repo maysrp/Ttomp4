@@ -40,15 +40,15 @@
 			$dh=opendir('./pre');//在当前目录下的pre目录下放置转换中的文件
 			while(($file=readdir($dh))!==false){
 				if($this->is_sh($file)){
-					$info['time']=$this->ctime("./doing/".$file);
-					$info['dir']="./doing/".$file;
+					$info['time']=$this->ctime("./pre/".$file);
+					$info['dir']="./pre/".$file;
 					$this->prelist[]=$info;
 				}
 				return $this->prelist;
 			}
 		}
 		public function do_info($dir){
-			if(is_file("./doing/".$dir)){
+			if(!is_file("./doing/".$dir)){
 				$re['status']=false;
 				$re['con']="无该文件";
 			}else{
@@ -64,7 +64,7 @@
 			}
 		}
 		public function pre_info($dir){
-			if(is_file("./pre/".$dir)){
+			if(!is_file("./pre/".$dir)){
 				$re['status']=false;
 				$re['con']="无该文件";
 			}else{
@@ -109,7 +109,7 @@
 			}
 			return $re;
 		}
-		protected ctime($file){
+		protected function ctime($file){
 			return filectime($file);
 		}
 		protected function is_sh($file){
@@ -159,6 +159,7 @@
 			$sc[]="#R#E#M#".$file."#R#E#M#".$dir."/".$out;
 			$script=implode("\n", $sc);
 			file_put_contents("./pre/".$out.".sh", $script);
+			return true;
 		}
 		protected function shellto($file,$dir,$type=1){
 			$sc[]=file_get_contents('head.sh');
@@ -177,6 +178,7 @@
 			$script=implode("\n", $sc);
 
 			file_put_contents("./pre/".$sn.".sh", $script);
+			return true;
 		}
 		
 
