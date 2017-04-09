@@ -8,9 +8,8 @@ apt-get install ffmpeg
 ```
 #### 创建目录
 
-pre
-
-doing
+* pre 
+* doing
 
 确保两个目录权限777 [让PHP写入转码配置]
 [确保两个文件夹下没有其他.sh脚本文件]
