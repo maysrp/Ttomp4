@@ -18,6 +18,7 @@ apt-get install ffmpeg
 
 index.php
 
+
 ```
 <?php
 	include "vcode.php";
@@ -39,6 +40,17 @@ crontab -e
 ```
 */1 * * * * sh /home/vcode/cron.sh 
 ```
+目前文件目录应该如此:
+* ./
+	* doing/      权限: 777
+	* pre/        权限: 777
+	* cron.sh
+	* vcode.php
+	* head.sh
+	* index.php  [运行脚本地址，可为其他文件名,但必须同目录]
+
+
+
 
 ### 核心文件
 
