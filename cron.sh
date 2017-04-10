@@ -1,2 +1,2 @@
 #!/bin/bash
-sh pre/*.sh
+sh pre/*.fv.sh
