@@ -69,7 +69,9 @@ rm ../doing/5b9a4c7ce81c35e3ba855e11d08c3ee2.mp4.sh
 #R#E#M#/home/wwwroot/default/m/v.mp4#R#E#M#/home/wwwroot/default/m/video/5b9a4c7ce81c35e3ba855e11d08c3ee2.mp4
 ```
 
-### 核心文件
+### 杂项
+
+调用ffmpeg转码时候，load即时负载大于2时自动舍【基本只能弃同时转码一个任务！】
 
 * vcode.php
 * head.sh
