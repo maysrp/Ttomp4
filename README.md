@@ -52,6 +52,8 @@ crontab -e
 
 自动生成的转码配置文件
 
+若想在其他目录下调用，请把doing 和 pre 和cron.sh head.sh与你的调用的文件放在同一目录下
+
 ```
 #!/bin/bash
 m=`uptime | awk '{print int($8)}'`
