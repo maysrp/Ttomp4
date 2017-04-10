@@ -146,7 +146,7 @@
 			$sc[]=file_get_contents('head.sh');
 			$out=$this->name($file);
 			$sc[]="cd ./pre";
-			$sc[]="mv ".$out.".sh ../doing";
+			$sc[]="mv ".$out.".fv.sh ../doing";
 			if($type==1){
 				$sc[]="ffmpeg -y -i ".$file." -c:v libx264 -strict -2 ".$dir."/".$out;
 			}else{
@@ -155,29 +155,29 @@
 				$sc[]="ffmpeg -y -i ".$file." -c:v libx264 -strict -2 ".$dir."/".$out;
 				$sc[]="ffmpeg -y -i ".$file." -c:v libx264 -strict -2 -s 848*480 ".$dir."/".$out_small;
 			}
-			$sc[]="rm ../doing/".$out.".sh";
+			$sc[]="rm ../doing/".$out.".fv.sh";
 			$sc[]="#R#E#M#".$file."#R#E#M#".$dir."/".$out;
 			$script=implode("\n", $sc);
-			file_put_contents("./pre/".$out.".sh", $script);
+			file_put_contents("./pre/".$out.".fv.sh", $script);
 			return true;
 		}
 		protected function shellto($file,$dir,$type=1){
 			$sc[]=file_get_contents('head.sh');
 			$sn=md5($dir);
 			$sc[]="cd ./pre";
-			$sc[]="mv ".$sn.".sh ../doing";
+			$sc[]="mv ".$sn.".fv.sh ../doing";
 			if($type==1){
 				$sc[]="ffmpeg -y -i ".$file." -c:v libx264 -strict -2 ".$dir;
 			}else{
 				$out_small=$dir.".small.mp4";
 				$sc[]="ffmpeg -y -i ".$file." -c:v libx264 -strict -2 ".$dir;
-				$sc[]="ffmpeg -y -i ".$file." -c:v libx264 -strict -2 -s 848*480 .".$out_small;
+				$sc[]="ffmpeg -y -i ".$file." -c:v libx264 -strict -2 -s 848*480 ".$out_small;
 			}
-			$sc[]="rm ../doing/".$sn.".sh";
+			$sc[]="rm ../doing/".$sn.".fv.sh";
 			$sc[]="#R#E#M#".$file."#R#E#M#".$dir;
 			$script=implode("\n", $sc);
 
-			file_put_contents("./pre/".$sn.".sh", $script);
+			file_put_contents("./pre/".$sn.".fv.sh", $script);
 			return true;
 		}
 		
