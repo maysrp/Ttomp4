@@ -50,7 +50,22 @@ crontab -e
 	* index.php  [运行脚本地址，可为其他文件名,但必须同目录]
 
 
+自动生成的转码配置文件
 
+```
+#!/bin/bash
+m=`uptime | awk '{print int($8)}'`
+if [ "$m" -gt 2 ];then
+	exit
+fi
+
+cd ./pre
+mv 5b9a4c7ce81c35e3ba855e11d08c3ee2.mp4.sh ../doing
+ffmpeg -y -i /home/wwwroot/default/m/v.mp4 -c:v libx264 -strict -2 /home/wwwroot/default/m/video/5b9a4c7ce81c35e3ba855e11d08c3ee2.mp4
+ffmpeg -y -i /home/wwwroot/default/m/v.mp4 -c:v libx264 -strict -2 -s 848*480 /home/wwwroot/default/m/video/small_5b9a4c7ce81c35e3ba855e11d08c3ee2.mp4
+rm ../doing/5b9a4c7ce81c35e3ba855e11d08c3ee2.mp4.sh
+#R#E#M#/home/wwwroot/default/m/v.mp4#R#E#M#/home/wwwroot/default/m/video/5b9a4c7ce81c35e3ba855e11d08c3ee2.mp4
+```
 
 ### 核心文件
 
